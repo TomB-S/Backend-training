@@ -1,0 +1,39 @@
+/* public/css/style.css — Styles minimalistes */
+/* servi par staticHandler quand le navigateur demande /css/style.css */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* reset universel — évite les débordements */
+}
+
+body {
+  font-family:
+    system-ui, sans-serif; /* police système — pas de dépendance externe */
+  max-width: 700px;
+  margin: 60px auto; /* centré horizontalement */
+  padding: 0 1rem;
+  background: #f5f5f5;
+  color: #222;
+}
+
+main {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #1a3a5c;
+}
+
+code {
+  background: #eef;
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+}
+
+a {
+  color: #e91e8c;
+}
