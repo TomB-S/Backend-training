@@ -1,0 +1,24 @@
+//- Vue enfant qui hérite de layout.pug - formulaire d'édition d'un plat
+extends layout
+
+block contenu
+  a(href="/plats/lister") Retour à la liste des plats
+  
+  h2(style="text-align:center") Editer plat
+  
+  //- Formulaire POST vers /plats/editer
+  form(method="POST" action="/plats/editer" style="max-width:400px; margin:0 auto")
+    //- Champ caché - transmet l'id du plat sans l'afficher à l'utilisateur
+    input(type="hidden" name="id" value=plat.id)
+    p
+      label Id
+      span= plat.id
+    p
+      label Nom
+      //- value=plat.name pré-remplit le champ avec la valeur actuelle
+      input(type="text" name="name" value=plat.name required)
+    p
+      label Prix
+      input(type="number" name="price" value=plat.price required)
+    p(style="text-align:right")
+      button(type="submit") Mettre à jour

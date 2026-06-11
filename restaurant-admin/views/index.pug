@@ -1,0 +1,32 @@
+//- Vue enfant qui hérite de layout.pug
+extends layout
+
+block contenu
+  //- Image de bienvenue servie depuis le dossier public/images
+  img.img-welcome(src="/images/welcome.png" alt="Bienvenue")
+  
+  //- Lien de création aligné à droite
+  p(style="text-align:right")
+    a(href="/plats/creer") Créer un nouveau plat
+  
+  //- Tableau listant tous les plats
+  table
+    thead
+      tr
+        th Id
+        th Nom
+        th Prix
+        th Action
+    tbody
+      //- Boucle sur le tableau "plats" passé par la route
+      each plat in plats
+        tr
+          td= plat.id
+          td= plat.name
+          td= plat.price
+          td
+            //- Lien édition avec l'id du plat en query string
+            a(href=`/plats/editer?id=${plat.id}`) Editer
+            |  |&nbsp;
+            //- Lien suppression avec l'id du plat en query string
+            a(href=`/plats/supprimer?id=${plat.id}`) Supprimer
