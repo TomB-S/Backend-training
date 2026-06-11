@@ -1,0 +1,20 @@
+//- Vue enfant qui hérite de layout.pug - formulaire de création d'un plat
+extends layout
+
+block contenu
+  //- Lien retour vers la liste
+  a(href="/plats/lister") Retour à la liste des plats
+  
+  h2(style="text-align:center") Nouveau plat
+  
+  //- Formulaire POST vers /plats/creer
+  form(method="POST" action="/plats/creer" style="max-width:400px; margin:0 auto")
+    p
+      label Nom
+      //- required = validation native HTML - champ obligatoire
+      input(type="text" name="name" required)
+    p
+      label Prix
+      input(type="number" name="price" required)
+    p(style="text-align:right")
+      button(type="submit") Créer
